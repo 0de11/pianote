@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://timer.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.32549, 0.411765, 1, 1 )
+
+[node name="timer" type="ProgressBar"]
+margin_left = 728.0
+margin_top = 160.0
+margin_right = 1028.0
+margin_bottom = 190.0
+custom_styles/fg = SubResource( 1 )
+percent_visible = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,1284 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://level.gd" type="Script" id=1]
+[ext_resource path="res://art/treble_staff.png" type="Texture" id=2]
+[ext_resource path="res://art/bass_staff.png" type="Texture" id=3]
+[ext_resource path="res://main.gd" type="Script" id=4]
+[ext_resource path="res://note.tscn" type="PackedScene" id=5]
+[ext_resource path="res://score.tscn" type="PackedScene" id=6]
+[ext_resource path="res://fonts/arial.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://timer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://key.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://fonts/arial.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.921569, 0.921569, 0.921569, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.219608, 1, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.768627, 0.768627, 0.768627, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+resource_local_to_scene = true
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.768627, 0.768627, 0.768627, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.768627, 0.768627, 0.768627, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+resource_local_to_scene = true
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.768627, 0.768627, 0.768627, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.768627, 0.768627, 0.768627, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+resource_local_to_scene = true
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[node name="Main" type="Node"]
+script = ExtResource( 4 )
+
+[node name="background" type="ColorRect" parent="."]
+margin_right = 1080.0
+margin_bottom = 540.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="note" parent="." instance=ExtResource( 5 )]
+position = Vector2( 560, 205 )
+z_index = 1
+
+[node name="score" parent="." instance=ExtResource( 6 )]
+margin_left = 728.0
+margin_top = 128.0
+margin_right = 1028.0
+margin_bottom = 158.0
+
+[node name="title" type="Label" parent="."]
+margin_left = 728.0
+margin_top = 56.0
+margin_right = 862.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="up" type="Button" parent="."]
+margin_left = 889.0
+margin_right = 921.0
+margin_bottom = 57.0
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="down" type="Button" parent="."]
+margin_left = 855.0
+margin_right = 887.0
+margin_bottom = 57.0
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="default_mode" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 170.0
+margin_right = 96.0
+margin_bottom = 227.0
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
+text = "="
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="treble_mode" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 85.0
+margin_right = 96.0
+margin_bottom = 142.0
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
+text = "&"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bass_mode" type="Button" parent="."]
+margin_left = 63.0
+margin_top = 251.0
+margin_right = 95.0
+margin_bottom = 308.0
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
+text = "?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="level" type="Label" parent="." groups=[
+"Persist",
+]]
+margin_left = 872.0
+margin_top = 56.0
+margin_right = 901.0
+margin_bottom = 123.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="timer" parent="." instance=ExtResource( 8 )]
+
+[node name="keys" type="ReferenceRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -608.0
+margin_top = -150.0
+margin_right = 142.0
+rect_scale = Vector2( 1.5, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="f2" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -330.0
+margin_right = -300.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 10, 100 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 162
+bar = false
+letter = "F"
+pitch = 40
+default_index = 32
+bass_index = 8
+
+[node name="g2" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -300.0
+margin_right = -270.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 10, 100 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 147
+bar = false
+letter = "G"
+pitch = 43
+default_index = 30
+bass_index = 6
+
+[node name="a2" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -270.0
+margin_right = -240.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 10, 100 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 132
+bar = false
+letter = "A"
+pitch = 45
+default_index = 28
+bass_index = 4
+
+[node name="b2" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -240.0
+margin_right = -210.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 10, 100 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 118
+bar = false
+letter = "B"
+pitch = 47
+default_index = 26
+bass_index = 2
+
+[node name="c3" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -210.0
+margin_right = -180.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 10, 100 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 102
+bar = false
+letter = "C"
+pitch = 48
+default_index = 14
+
+[node name="d3" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -180.0
+margin_right = -150.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 10, 100 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 87
+bar = false
+letter = "D"
+pitch = 50
+default_index = 12
+bass_index = 1
+
+[node name="e3" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -150.0
+margin_right = -120.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 10, 100 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 73
+up = false
+bar = false
+letter = "E"
+pitch = 52
+default_index = 10
+bass_index = 3
+
+[node name="f3" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -120.0
+margin_right = -89.9999
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 10, 100 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 60
+up = false
+bar = false
+letter = "F"
+pitch = 53
+default_index = 8
+bass_index = 5
+
+[node name="g3" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -90.0
+margin_right = -60.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 10, 100 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 44
+up = false
+bar = false
+letter = "G"
+pitch = 55
+default_index = 6
+bass_index = 7
+
+[node name="a3" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -60.0
+margin_right = -30.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 10, 100 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 30
+up = false
+bar = false
+letter = "A"
+pitch = 57
+default_index = 4
+bass_index = 9
+
+[node name="b3" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -30.0
+margin_right = 3.05176e-05
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 10, 100 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 14
+up = false
+bar = false
+letter = "B"
+pitch = 59
+default_index = 2
+bass_index = 10
+
+[node name="c4" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_right = 30.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 14 )
+custom_styles/normal = SubResource( 8 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+letter = "C"
+bass_index = 19
+
+[node name="d4" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 30.0
+margin_right = 60.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 15 )
+custom_styles/normal = SubResource( 9 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -17
+bar = false
+letter = "D"
+pitch = 62
+default_index = 1
+bass_index = 20
+
+[node name="e4" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 60.0
+margin_right = 90.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 9 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -33
+bar = false
+letter = "E"
+pitch = 64
+default_index = 3
+bass_index = 21
+
+[node name="f4" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 90.0
+margin_right = 120.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 9 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -47
+bar = false
+letter = "F"
+pitch = 65
+default_index = 5
+bass_index = 22
+
+[node name="g4" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 120.0
+margin_right = 150.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 9 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -64
+bar = false
+letter = "G"
+pitch = 67
+default_index = 7
+bass_index = 23
+
+[node name="a4" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 150.0
+margin_right = 180.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 9 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -77
+bar = false
+letter = "A"
+pitch = 69
+default_index = 9
+bass_index = 24
+
+[node name="b4" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 180.0
+margin_right = 210.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 9 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -93
+up = false
+bar = false
+letter = "B"
+pitch = 71
+default_index = 11
+bass_index = 25
+
+[node name="c5" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 210.0
+margin_right = 240.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 9 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -105
+up = false
+bar = false
+letter = "C"
+pitch = 72
+default_index = 13
+bass_index = 26
+
+[node name="d5" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 240.0
+margin_right = 270.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 9 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -122
+up = false
+bar = false
+letter = "D"
+pitch = 74
+default_index = 25
+bass_index = 27
+
+[node name="e5" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 270.0
+margin_right = 300.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 9 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -136
+up = false
+bar = false
+letter = "E"
+pitch = 76
+default_index = 27
+bass_index = 28
+
+[node name="f5" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 300.0
+margin_right = 330.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 9 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -152
+up = false
+bar = false
+letter = "F"
+pitch = 77
+default_index = 29
+bass_index = 29
+
+[node name="g5" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 330.0
+margin_right = 360.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 9 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -165
+up = false
+bar = false
+letter = "G"
+pitch = 79
+default_index = 31
+bass_index = 30
+
+[node name="a5" type="Button" parent="keys"]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 360.0
+margin_right = 390.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 9 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -180
+up = false
+letter = "A"
+pitch = 81
+default_index = 33
+bass_index = 31
+
+[node name="fs2" type="Button" parent="keys"]
+margin_left = 65.0
+margin_right = 85.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 162
+acc = "#"
+bar = false
+letter = "F#"
+pitch = 42
+default_index = 39
+bass_index = 17
+
+[node name="af2" type="Button" parent="keys"]
+margin_left = 95.0
+margin_right = 115.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 132
+acc = "b"
+bar = false
+letter = "Ab"
+pitch = 44
+default_index = 37
+bass_index = 15
+
+[node name="bf2" type="Button" parent="keys"]
+margin_left = 125.0
+margin_right = 145.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 118
+acc = "b"
+bar = false
+letter = "Bb"
+pitch = 46
+default_index = 35
+bass_index = 13
+
+[node name="cs3" type="Button" parent="keys"]
+margin_left = 185.0
+margin_right = 205.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 102
+acc = "#"
+bar = false
+letter = "C#"
+pitch = 49
+default_index = 24
+bass_index = 11
+
+[node name="ef3" type="Button" parent="keys"]
+margin_left = 215.0
+margin_right = 235.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 73
+acc = "b"
+bar = false
+letter = "Eb"
+pitch = 51
+default_index = 22
+bass_index = 12
+
+[node name="fs3" type="Button" parent="keys"]
+margin_left = 275.667
+margin_right = 295.667
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 60
+up = false
+acc = "#"
+bar = false
+letter = "F#"
+pitch = 54
+default_index = 20
+bass_index = 14
+
+[node name="af3" type="Button" parent="keys"]
+margin_left = 305.0
+margin_right = 325.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 30
+up = false
+acc = "b"
+bar = false
+letter = "Ab"
+pitch = 56
+default_index = 18
+bass_index = 16
+
+[node name="bf3" type="Button" parent="keys"]
+margin_left = 335.0
+margin_right = 355.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = 14
+acc = "b"
+bar = false
+letter = "Bb"
+pitch = 58
+default_index = 16
+bass_index = 18
+
+[node name="cs4" type="Button" parent="keys"]
+margin_left = 396.0
+margin_right = 416.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+acc = "#"
+letter = "C#"
+pitch = 61
+default_index = 15
+bass_index = 32
+
+[node name="ef4" type="Button" parent="keys"]
+margin_left = 425.0
+margin_right = 445.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -33
+acc = "b"
+bar = false
+letter = "Eb"
+pitch = 63
+default_index = 17
+bass_index = 33
+
+[node name="fs4" type="Button" parent="keys"]
+margin_left = 485.0
+margin_right = 505.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -47
+acc = "#"
+bar = false
+letter = "F#"
+pitch = 66
+default_index = 19
+bass_index = 34
+
+[node name="af4" type="Button" parent="keys"]
+margin_left = 515.0
+margin_right = 535.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -77
+acc = "b"
+bar = false
+letter = "Ab"
+pitch = 68
+default_index = 21
+bass_index = 35
+
+[node name="bf4" type="Button" parent="keys"]
+margin_left = 545.0
+margin_right = 565.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -93
+up = false
+acc = "b"
+bar = false
+letter = "Bb"
+pitch = 70
+default_index = 23
+bass_index = 36
+
+[node name="cs5" type="Button" parent="keys"]
+margin_left = 605.0
+margin_right = 625.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -105
+up = false
+acc = "#"
+bar = false
+letter = "C#"
+pitch = 73
+default_index = 34
+bass_index = 37
+
+[node name="ef5" type="Button" parent="keys"]
+margin_left = 635.0
+margin_right = 655.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -136
+up = false
+acc = "b"
+bar = false
+letter = "Eb"
+pitch = 75
+default_index = 36
+bass_index = 38
+
+[node name="fs5" type="Button" parent="keys"]
+margin_left = 695.0
+margin_right = 715.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -152
+up = false
+acc = "#"
+bar = false
+letter = "F#"
+pitch = 78
+default_index = 38
+bass_index = 39
+
+[node name="af5" type="Button" parent="keys"]
+margin_left = 725.0
+margin_right = 745.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+disabled = true
+action_mode = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+y = -180
+up = false
+acc = "b"
+letter = "Ab"
+pitch = 80
+default_index = 40
+bass_index = 40
+
+[node name="staves" type="ReferenceRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 40.0
+border_color = Color( 1, 1, 1, 1 )
+editor_only = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="treble_staff" type="Sprite" parent="staves"]
+texture = ExtResource( 2 )
+offset = Vector2( 0, 110 )
+
+[node name="bass_staff" type="Sprite" parent="staves"]
+texture = ExtResource( 3 )
+offset = Vector2( 0, 295 )
+[connection signal="Level_Up" from="score" to="." method="_on_score_Level_Up"]
+[connection signal="pressed" from="up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="default_mode" to="." method="_on_default_mode_pressed"]
+[connection signal="pressed" from="treble_mode" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="bass_mode" to="." method="_on_bass_mode_pressed"]
+[connection signal="Times_Up" from="timer" to="." method="_on_timer_Times_Up"]
+[connection signal="pressed" from="keys/f2" to="." method="_on_f2_pressed"]
+[connection signal="pressed" from="keys/g2" to="." method="_on_g2_pressed"]
+[connection signal="pressed" from="keys/a2" to="." method="_on_a2_pressed"]
+[connection signal="pressed" from="keys/b2" to="." method="_on_b2_pressed"]
+[connection signal="pressed" from="keys/c3" to="." method="_on_c3_pressed"]
+[connection signal="pressed" from="keys/d3" to="." method="_on_d3_pressed"]
+[connection signal="pressed" from="keys/e3" to="." method="_on_e3_pressed"]
+[connection signal="pressed" from="keys/f3" to="." method="_on_f3_pressed"]
+[connection signal="pressed" from="keys/g3" to="." method="_on_g3_pressed"]
+[connection signal="pressed" from="keys/a3" to="." method="_on_a3_pressed"]
+[connection signal="pressed" from="keys/b3" to="." method="_on_b3_pressed"]
+[connection signal="pressed" from="keys/c4" to="." method="_on_c4_pressed"]
+[connection signal="pressed" from="keys/d4" to="." method="_on_d4_pressed"]
+[connection signal="pressed" from="keys/e4" to="." method="_on_e4_pressed"]
+[connection signal="pressed" from="keys/f4" to="." method="_on_f4_pressed"]
+[connection signal="pressed" from="keys/g4" to="." method="_on_g4_pressed"]
+[connection signal="pressed" from="keys/a4" to="." method="_on_a4_pressed"]
+[connection signal="pressed" from="keys/b4" to="." method="_on_b4_pressed"]
+[connection signal="pressed" from="keys/c5" to="." method="_on_c5_pressed"]
+[connection signal="pressed" from="keys/d5" to="." method="_on_d5_pressed"]
+[connection signal="pressed" from="keys/e5" to="." method="_on_e5_pressed"]
+[connection signal="pressed" from="keys/f5" to="." method="_on_f5_pressed"]
+[connection signal="pressed" from="keys/g5" to="." method="_on_g5_pressed"]
+[connection signal="pressed" from="keys/a5" to="." method="_on_a5_pressed"]
+[connection signal="pressed" from="keys/fs2" to="." method="_on_fs2_pressed"]
+[connection signal="pressed" from="keys/af2" to="." method="_on_af2_pressed"]
+[connection signal="pressed" from="keys/bf2" to="." method="_on_bf2_pressed"]
+[connection signal="pressed" from="keys/cs3" to="." method="_on_cs3_pressed"]
+[connection signal="pressed" from="keys/ef3" to="." method="_on_ef3_pressed"]
+[connection signal="pressed" from="keys/fs3" to="." method="_on_fs3_pressed"]
+[connection signal="pressed" from="keys/af3" to="." method="_on_af3_pressed"]
+[connection signal="pressed" from="keys/bf3" to="." method="_on_bf3_pressed"]
+[connection signal="pressed" from="keys/cs4" to="." method="_on_cs4_pressed"]
+[connection signal="pressed" from="keys/ef4" to="." method="_on_ef4_pressed"]
+[connection signal="pressed" from="keys/fs4" to="." method="_on_fs4_pressed"]
+[connection signal="pressed" from="keys/af4" to="." method="_on_af4_pressed"]
+[connection signal="pressed" from="keys/bf4" to="." method="_on_bf4_pressed"]
+[connection signal="pressed" from="keys/cs5" to="." method="_on_cs5_pressed"]
+[connection signal="pressed" from="keys/ef5" to="." method="_on_ef5_pressed"]
+[connection signal="pressed" from="keys/fs5" to="." method="_on_fs5_pressed"]
+[connection signal="pressed" from="keys/af5" to="." method="_on_af5_pressed"]
