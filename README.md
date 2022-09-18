@@ -1,4 +1,4 @@
-This is a simple Godot game to increase piano key knowledge. Starts with two notes (C, D) and increases piano keys available as you gain in levels.
+This is a simple game for Android or Windows to increase piano key knowledge. Starts with two notes (C, D) and increases piano keys available as you gain in levels. Written in Godot.
 
 In the executable directory there are two installs:
 
