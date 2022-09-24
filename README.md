@@ -2,6 +2,7 @@ This is a simple game for Android or Windows to increase piano key knowledge. St
 
 In the executable directory there are two installs:
 
-- pianote.apk is an installer for Android. Touch-screen capabilities for pressing the keys.
+* pianote.apk is an installer for Android. Touch-screen capabilities for pressing the keys.
 
-- pianote.exe is an installer for Windows. Has the ability to register MIDI input from a real keyboard or electric piano! Also has touch-screen capabilities.
+* pianote.exe is an executable for Windows. Has the ability to register MIDI input from a real keyboard or electric piano! Also has touch-screen capabilities.
+  * download .zip: needs .pck file in same directory as .exe
